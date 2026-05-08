@@ -34,11 +34,3 @@ export const API_CONFIG = {
 	IMAGES_PER_PAGE: 12,
 	MAX_PAGES: 50,
 };
-
-
-export const activePage = (path) => {
-	NAV_LINKS = NAV_LINKS.map((link) => ({
-		...link,
-		active: link.path === path,
-	}));
-}
