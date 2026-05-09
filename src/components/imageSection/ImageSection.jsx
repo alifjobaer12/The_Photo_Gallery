@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import { API_CONFIG } from "../../constants/appConstants";
 
 // Helper to generate low-res and high-res image URLs from Unsplash-style API
@@ -13,10 +14,10 @@ const getImageUrls = (imageData) => {
 };
 
 const ImageSection = () => {
-	const [images, setImages] = useState([]);
-	const [pageNumber, setPageNumber] = useState(
-		() => Math.floor(Math.random() * API_CONFIG.MAX_PAGES) + 1,
-	);
+	const { images: initialImages, pageNumber: initialPageNumber } =
+		useLoaderData() || { images: [], pageNumber: 1 };
+	const [images, setImages] = useState(initialImages);
+	const [pageNumber, setPageNumber] = useState(initialPageNumber);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 	const [loadedImages, setLoadedImages] = useState(new Set());
