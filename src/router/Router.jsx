@@ -12,6 +12,7 @@ import Portraits from "../pages/Portraits";
 import Fashion from "../pages/Fashion";
 import Motion from "../pages/Motion";
 import Contact from "../pages/Contact";
+import NotFound from "../pages/NotFound";
 
 // Loader function to fetch initial images
 const homeLoader = async () => {
@@ -36,6 +37,7 @@ const Router = createBrowserRouter(
 			<Route path="fashion" element={<Fashion />} />
 			<Route path="motion" element={<Motion />} />
 			<Route path="contact" element={<Contact />} />
+			<Route path="*" element={<NotFound />} />,
 		</Route>,
 	),
 );
