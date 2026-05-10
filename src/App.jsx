@@ -1,28 +1,31 @@
-import { Route, Routes } from "react-router-dom";
-import SideBar from "./components/sideBar/SideBar";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Portraits from "./pages/Portraits";
-import Contact from "./pages/Contact";
-import Fashion from "./pages/Fashion";
-import Motion from "./pages/Motion";
+import { useState } from "react";
 
-const App = () => {
+function App() {
+	const [themeMode, setThemeMode] = useState("light");
+
+	const toggleTheme = () => {
+		const newMode = themeMode === "light" ? "dark" : "light";
+
+		document.documentElement.classList.remove("light", "dark");
+		document.documentElement.classList.add(newMode);
+
+		setThemeMode(newMode);
+	};
+
 	return (
-		<main className="min-h-screen bg-[#efefef] flex flex-col md:flex-row ">
-			<div className="w-full pt-16 md:fixed md:left-0 md:top-0 md:h-screen md:w-80 md:overflow-y-auto md:pt-0">
-				<SideBar />
-			</div>
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/about" element={<About />} />
-				<Route path="/portraits" element={<Portraits />} />
-				<Route path="/fashion" element={<Fashion />} />
-				<Route path="/motion" element={<Motion />} />
-				<Route path="/contact" element={<Contact />} />
-			</Routes>
-		</main>
+		<div className="min-h-screen bg-white dark:bg-amber-300">
+			<button
+				className="m-4 px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded active:scale-95"
+				onClick={toggleTheme}
+			>
+				Toggle Dark
+			</button>
+
+			<h1 className="flex justify-center m-10 bg-yellow-50 dark:bg-gray-950 text-9xl text-black dark:text-white">
+				alif
+			</h1>
+		</div>
 	);
-};
+}
 
 export default App;

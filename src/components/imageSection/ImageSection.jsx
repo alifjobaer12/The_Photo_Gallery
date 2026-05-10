@@ -136,7 +136,7 @@ const ImageSection = () => {
 							return (
 								<article
 									key={id}
-									className="overflow-hidden rounded break-inside-avoid mb-4"
+									className="overflow-hidden rounded break-inside-avoid mb-4 text-[12px] font-medium uppercase tracking-[0.12em] text-neutral-600/70 transition-colors duration-200 hover:text-neutral-950 dark:hover:text-amber-100 sm:text-[14px]"
 									data-image-id={id}
 								>
 									<a
@@ -185,7 +185,7 @@ const ImageSection = () => {
 										)}
 									</a>
 									<div className="p-2">
-										<p className="text-sm text-gray-700">
+										<p className="text-sm  ">
 											{image.author}
 										</p>
 									</div>
